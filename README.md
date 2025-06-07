@@ -8,6 +8,10 @@ Create your own job alert system.
   - `GET /api/newest`: Returns maximum 1000 newest job postings.
     - Parameters:
       - `since`: Optional. A timestamp in milliseconds. If provided, only returns job postings created after this timestamp. If not provided or omitted, returns 1000 newest job postings.
+    - Example:
+      ```
+      GET /api/newest?since=1700000000000
+      ```
     - Response: Returns the following JSON object:
       ```typescript
       {
@@ -17,5 +21,9 @@ Create your own job alert system.
       }
       ```
       Check out https://schema.org/JobPosting for the `JobPosting` type.
+
     - Rate limit: 10 requests per minute per IP address.
 
+## Script examples
+
+To be updated soon.
