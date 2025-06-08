@@ -60,5 +60,6 @@ python keywords-alert.py --pushover_user_key=xxx --pushover_api_token=xxx --noti
   - The query syntax is similar to the one used in ElasticSearch, you can find more information about it here: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html.
     - Note: The script use https://github.com/edeca/querydict to parse the query. The query does not support wildcards, fuzzy searches, range searches, or proximity searches. It only supports basic queries with AND, OR, and NOT operators.
     - Check out https://schema.org/JobPosting for the fields that can be used in the query.
+- Install Pushover app on your phone to receive notifications.
 
 ### Coming soon: Use LLM to match your resume with job postings and send you an email or push notification when a new job is posted that matches your resume.
