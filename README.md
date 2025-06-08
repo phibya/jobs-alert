@@ -62,4 +62,17 @@ python keywords-alert.py --pushover_user_key=xxx --pushover_api_token=xxx --noti
     - Check out https://schema.org/JobPosting for the fields that can be used in the query.
 - Install Pushover app on your phone to receive notifications.
 
-### Coming soon: Use LLM to match your resume with job postings and send you an email or push notification when a new job is posted that matches your resume.
+### 2. `resume-alert.py`:
+A script that sends you a notification when a new job is posted that matches your resume.
+This script combine the `keywords-alert.py` script with matching your resume with the job postings before sending you a notification. Follow the same steps as above to install the required packages and run the script. You also need to install Ollama to run the LLM model for generating the query from your resume. Follow the instructions on https://ollama.com to install Ollama.
+
+- Additional parameters:
+  - `--resume_path`: Path to your resume file (PDF). The script will extract the text from the resume and use it to match job postings.
+  - `--device`: Default is `cpu`. If you have a GPU, you can set it to `cuda` to use GPU for faster processing. If you use MacOS, you can set it to `mps` to use the Apple Silicon GPU.
+  - `--embedding_model`: The model to use for embedding your resume and job postings. Default is `BAAI/bge-m3`. You can use any model from HuggingFace that supports sentence embeddings.
+  - `--llm_model`: The model to use for generating the query from your resume. Default is `qwen2.5:7b`.
+  - `--min_score`: The minimum score to consider a job posting as a match. Default is `70`. The score is calculated based on the cosine similarity between the embedding of your resume and the embedding of the job posting, rescaled from 0 to 100.
+- Example:
+```bash
+python resume-alert.py --pushover_user_key=xxx --pushover_api_token=xxx --notification_interval=3600 --resume_path='path/to/your/resume.pdf' --device='cuda' --embedding_model='BAAI/bge-m3' --llm_model='qwen2.5:7b' --min_score=70
+```
