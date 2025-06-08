@@ -56,7 +56,7 @@ python keywords-alert.py --pushover_user_key=xxx --pushover_api_token=xxx --noti
       ```
       --query='(title:"Data scientist" OR title:"Data science") AND (description:"Python" OR description:"Pandas" OR description:"SQL") AND (hiringOrganization.name:"Google" OR hiringOrganization.name:"Meta" OR hiringOrganization.name:"Microsoft") AND employmentType:"FULL_TIME"'
       ```
-      This will search for job postings that contain "Data scientist" or "Data science" in the title, "Python", "Pandas", or "SQL" in the description, and do not contain "intern" or "internship" in the description, and are posted by Google, Meta, or Microsoft, and are full-time jobs.
+      This will search for job postings that contain "Data scientist" or "Data science" in the title, "Python", "Pandas", or "SQL" in the description, and are posted by Google, Meta, or Microsoft, and are full-time jobs.
   - The query syntax is similar to the one used in ElasticSearch, you can find more information about it here: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html.
     - Note: The script use https://github.com/edeca/querydict to parse the query. The query does not support wildcards, fuzzy searches, range searches, or proximity searches. It only supports basic queries with AND, OR, and NOT operators.
     - Check out https://schema.org/JobPosting for the fields that can be used in the query.
